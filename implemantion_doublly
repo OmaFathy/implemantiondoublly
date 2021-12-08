@@ -1,0 +1,93 @@
+#include <bits/stdc++.h>
+#define ll long long int
+using namespace std;
+//ربنا أكرم من أي حد
+//Jerry&Tom
+//O_SOFTWARE
+//هو انا هحل؟انتو بتوعي وانا بتعاكوو يتهدوني يهدكو
+void omar()
+{
+ios::sync_with_stdio(0);
+cin.tie(0);
+
+}
+struct node
+{
+    int data;
+    struct node*next;
+    struct node*prev;
+}*head,*temp,*prevnode,*nextnode,*current;
+class Double_linked_list
+{
+public:
+    linked_list()
+    {
+        head=NULL;
+    }
+    void createnode(int value);
+    void insertnode(int value);
+
+    void display();
+
+
+};
+
+void Double_linked_list::createnode(int value)
+{
+    struct node*newnode;
+    newnode=new node();
+    newnode->data=value;
+    newnode->next=NULL;
+     newnode->prev=NULL;
+
+}
+//****************************************************
+void Double_linked_list::insertnode(int value)
+{
+     struct node*newnode;
+     newnode = new node();
+
+       newnode->data = value;
+        newnode->next=NULL;
+        newnode->prev=NULL;
+
+
+    if (head == NULL)
+    {
+         head=temp=newnode;
+    }
+
+  else
+   {
+    temp->next=newnode;
+    newnode->prev=temp;
+       temp=newnode;
+
+   }
+}
+
+//****************************************************
+void Double_linked_list::display()
+{
+
+temp=head;
+
+ while(temp!=0)
+ {
+     cout<<temp->data<<" ";
+     temp=temp->next;
+ }
+}
+//****************************************************
+int main()
+{
+Double_linked_list ob;
+ob.insertnode(1);
+ob.insertnode(2);
+ob.insertnode(3);
+ob.insertnode(4);
+ob.insertnode(5);
+ob.display();
+
+    return 0;
+}
